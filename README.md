@@ -2,15 +2,15 @@
  Projet LINFO1114 – Mathématiques discrètes  « Distance du plus court chemin:  Dijkstra, Bellman-Ford et Floyd-Warshall »
 
 ## Objectif
- Le but decetravail est d’implémenter et de tester trois algorithmes permettant de
+ Le but de ce travail est d’implémenter et de tester trois algorithmes permettant de
  calculer la matrice de distance des plus courts chemins entre toutes les paires de noeuds d’un
- graphe.Les algorithmes que vous devrez utiliser sont ceux de Dijkstra,Bellman-Ford et Floyd Warshall.
+ graphe. Les algorithmes que vous devrez utiliser sont ceux de Dijkstra,Bellman-Ford et Floyd Warshall.
  Il devra calculer, sur un graphe, la matrice de distance des plus courts chemins via ces trois
  algorithmes. Il faudra suivre rigoureusement ces algorithmes, comme détaillé au cours pour
  l’algorithme de Dijkstra.
 
 ## Graphique
-![Image du graphique](Graphe23.png)
+![Image du graphique](Graphe23.jpg)
 
 ## Fonctions
 
