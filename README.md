@@ -10,7 +10,7 @@
  l’algorithme de Dijkstra.
 
 ## Graphique
-![Image du graphique](Graphe23.jpg)
+![Image du graphique](/graph/Graphe23.jpg)
 
 ## Fonctions
 
@@ -21,7 +21,7 @@ Dans le cadre de l’implémentation des trois algorithmes en Python, les signat
 3. def Floyd_Warshall(C: np.matrix) --> np.matrix
 
 - **Input :** Une matrice (numpy) n x n de coûts C d’un graphe non-dirigé, pondéré et
- connectéG. Cette matrice contient les coûts cij (non-négatifs) associés aux liens (i, j)
+ connecté. Cette matrice contient les coûts cij (non-négatifs) associés aux liens (i, j)
  du graphe. Par la suite, n sera le nombre de noeuds de G que l’on peut déduire de la
  matrice.
 
@@ -34,7 +34,7 @@ boucle permettant le calcul de toutes les distances entre noeuds.
 
 De plus, une procédure "main" sera implémenter et elle sera capable de:
 
-1. lire un fichier .csv (que vous devez créer et definir vous-même) contenant la matrice de coûts C du graphe fourni sur Moodle (séparez vos valeurs par une virgule et chaque ligne de la matrice par un
+1. lire un fichier .csv (que vous devez créer et définir vous-même) contenant la matrice de coûts C du graphe fourni sur Moodle (séparez vos valeurs par une virgule et chaque ligne de la matrice par un
 passage à la ligne)
 
 2. qui lance le calcul des matrices de distance des plus courts chemins (via les trois fonctions)

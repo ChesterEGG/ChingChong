@@ -1,18 +1,25 @@
 import numpy as np
+from algo import *
 
-# Matrice des distances minimales
-dist_min = np.array([
-    [0.0, 4.0, 4.0, 3.0, 7.0, 7.0, 8.0, 10.0, 8.0, 12.0],  # A
-    [4.0, 0.0, 1.0, 4.0, 3.0, 8.0, 4.0, 6.0, 9.0, 11.0],   # B
-    [4.0, 1.0, 0.0, 3.0, 3.0, 7.0, 5.0, 6.0, 8.0, 11.0],   # C
-    [3.0, 4.0, 3.0, 0.0, 6.0, 4.0, 8.0, 8.0, 5.0, 9.0],    # D
-    [7.0, 3.0, 3.0, 6.0, 0.0, 5.0, 5.0, 3.0, 9.0, 8.0],    # E
-    [7.0, 8.0, 7.0, 4.0, 5.0, 0.0, 9.0, 4.0, 4.0, 5.0],    # F
-    [8.0, 4.0, 5.0, 8.0, 5.0, 9.0, 0.0, 3.0, 9.0, 8.0],    # G
-    [10.0, 6.0, 6.0, 8.0, 3.0, 4.0, 3.0, 0.0, 8.0, 5.0],   # H
-    [8.0, 9.0, 8.0, 5.0, 9.0, 4.0, 9.0, 8.0, 0.0, 5.0],    # I
-    [12.0, 11.0, 11.0, 9.0, 8.0, 5.0, 8.0, 5.0, 5.0, 0.0]  # J
+# Initiation des variables
+INF = float('inf')
+
+# Matrice coût
+mat_cout = np.matrix([
+    # A    B    C    D    E    F    G    H    I    J
+    [0,   4,   4,   3,   INF, INF, INF, INF, INF, INF],  # A
+    [4,   0,   1,   INF, 3,   INF, 4,   INF, INF, INF],  # B
+    [4,   1,   0,   3,   3,   INF, INF, INF, INF, INF],  # C
+    [3,   INF, 3,   0,   INF, 4,   INF, INF, 5,   INF],  # D
+    [INF, 3,   3,   INF, 0,   5,   5,   3,   INF, INF],  # E
+    [INF, INF, INF, 4,   5,   0,   INF, 4,   4,   5],    # F
+    [INF, 4,   INF, INF, 5,   INF, 0,   3,   INF, INF],  # G
+    [INF, INF, INF, INF, 3,   4,   3,   0,   INF, 5],    # H
+    [INF, INF, INF, 5,   INF, 4,   INF, INF, 0,   5],    # I
+    [INF, INF, INF, INF, INF, 5,   INF, 5,   5,   0]     # J
 ])
 
-print(dist_min)
+
+
+print()
 
