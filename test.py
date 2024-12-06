@@ -1,4 +1,5 @@
 import numpy as np
+from algo import Dijkstra
 
 print("suce")
 test = np.matrix([

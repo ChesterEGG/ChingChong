@@ -4,7 +4,8 @@ import numpy as np
 # Initiation de variable
 INF = float('inf')
 
-def dijkstra(C):
+# Complxité de O(n^3), peut être améliorer
+def Dijkstra(C):
     """
     Calcule la matrice de distance des plus courts chemins entre toutes les paires de noeuds d’un graphe en utilisant
     l'algorithme de Dijkstra.
@@ -22,7 +23,7 @@ def dijkstra(C):
         """
         Calcule les plus chemins le plus court d'un noeud
 
-        Input: noeud --> un int qui représente un noeud du graphe
+        Input: noeud --> un int qui représente l'index un noeud du graphe
         Output: Une liste de int avec la valeur des plus courtes distances du noeud
         """
         # Initialisation des distances à l'infini
@@ -58,7 +59,7 @@ def dijkstra(C):
 
         return dist
 
-    # Appliquer Dijkstra pour chaque nœud comme source
+    # Appliquer Dijkstra pour chaque noeud comme source
     for i in range(n):
         D[i] = chemins_plus_court(i)
 
@@ -78,4 +79,4 @@ C = np.array([
     [INF, INF, INF, 5,   INF, 4,   INF, INF, 0,   5],    # I
     [INF, INF, INF, INF, INF, 5,   INF, 5,   5,   0]     # J
 ])
-print(dijkstra(C))
+print(Dijkstra(C))
