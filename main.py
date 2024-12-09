@@ -1,25 +1,41 @@
 import numpy as np
-from algo import *
+from algo.Dijkstra import Dijkstra
+from algo.Bellman_Ford import Bellman_Ford
+from algo.Floyd_Warshall import Floyd_Warshall
 
 # Initiation des variables
 INF = float('inf')
+fichier_csv = 'graph/graphe.csv'
 
-# Matrice coût
-mat_cout = np.matrix([
-    # A    B    C    D    E    F    G    H    I    J
-    [0,   4,   4,   3,   INF, INF, INF, INF, INF, INF],  # A
-    [4,   0,   1,   INF, 3,   INF, 4,   INF, INF, INF],  # B
-    [4,   1,   0,   3,   3,   INF, INF, INF, INF, INF],  # C
-    [3,   INF, 3,   0,   INF, 4,   INF, INF, 5,   INF],  # D
-    [INF, 3,   3,   INF, 0,   5,   5,   3,   INF, INF],  # E
-    [INF, INF, INF, 4,   5,   0,   INF, 4,   4,   5],    # F
-    [INF, 4,   INF, INF, 5,   INF, 0,   3,   INF, INF],  # G
-    [INF, INF, INF, INF, 3,   4,   3,   0,   INF, 5],    # H
-    [INF, INF, INF, 5,   INF, 4,   INF, INF, 0,   5],    # I
-    [INF, INF, INF, INF, INF, 5,   INF, 5,   5,   0]     # J
-])
+# Ouvrir et lire le fichier csv
+with open(fichier_csv, 'r') as csv:
+    # Lire les lignes
+    lignes = csv.readlines()
+    n = len(lignes)
+    # Créer une matrice vide de taille n x n
+    D = np.empty((n, n), dtype=float)
 
+    # Diviser chaque ligne en une liste avec ses valeurs
+    for i in range(n):
+        ligne = lignes[i].split(',')
+        # Remplacer dans la matrice vide les valeurs correspondantes aux index
+        for j in range(n):
+            D[i][j] = ligne[j]
 
+    # Fermer le csv
+    csv.close()
 
-print()
+mat_dk = Dijkstra(D)
+mat_bf = Bellman_Ford(D)
+mat_fw = Floyd_Warshall(D)
+
+# Vérifier si les 3 matrices sont égaux
+assert np.array_equal(mat_dk, mat_bf) and np.array_equal(mat_dk, mat_fw)
+
+# Imprimer la matrice coût
+print("La matrice coût du graphe est:\n" + str(D) + "\n")
+# Imprimer les 3 matrices distances des plus courts chemins avec chaque algo
+print("La matrice des distances des plus courts chemins en utilisant l'algo de Dijkstra:\n" + str(mat_dk) + "\n")
+print("La matrice des distances des plus courts chemins en utilisant l'algo de Bellman-Ford:\n" + str(mat_bf) + "\n")
+print("La matrice des distances des plus courts chemins en utilisant l'algo de Floyd Warshall:\n" + str(mat_fw) + "\n")
 
