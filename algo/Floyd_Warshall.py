@@ -18,11 +18,12 @@ def Floyd_Warshall(C):
     # Copier la matrice coût sur D
     D = C.copy()
 
-    for i in range(n):  # Sommet intermédiaire
-        for j in range(n):  # Sommet source
-            for k in range(n):  # Sommet destination
-                # Misa à jour de la distance minimale
-                if D[i][k] != INF and D[k][j] != INF:  # Eviter les additions avec des INF
+    for k in range(n):  # Sommet intermédiaire
+        for i in range(n):  # Sommet source
+            for j in range(n):  # Sommet destination
+                # Mise à jour de la distance minimale
+                if D[i][k] != INF and D[k][j] != INF:  # Éviter les additions avec des INF
                     D[i][j] = min(D[i][j], D[i][k] + D[k][j])
 
     return D
+
