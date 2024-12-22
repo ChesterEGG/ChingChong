@@ -3,6 +3,7 @@ import numpy as np
 # Initiation de variable
 INF = float('inf')
 
+# Complexité de O(n^3), peut être amélioré
 def Dijkstra(C):
     """
     Calcule la matrice de distance des plus courts chemins entre toutes les paires de noeuds d’un graphe en utilisant
@@ -26,14 +27,14 @@ def Dijkstra(C):
         """
         # Initialisation des distances à l'infini
         dist = [INF] * n
-        # Distance au nœud lui-même = 0
+        # Distance au noeud lui-même = 0
         dist[noeud] = 0
-        # Garde une trace des nœuds visités
+        # Garde une trace des noeuds visités
         visited = [False] * n
 
-        # Itérer sur tous les nœuds
+        # Itérer sur tous les noeuds
         for _ in range(n):
-            # Trouver le nœud non visité avec la plus petite distance
+            # Trouver le noeud non visité avec la plus petite distance
             min_distance = INF
             min_node = -1
             for i in range(n):
@@ -41,11 +42,11 @@ def Dijkstra(C):
                     min_distance = dist[i]
                     min_node = i
 
-            # Si aucun nœud n'est accessible, arrêter
+            # Si aucun noeud n'est accessible, arrêter
             if min_node == -1:
                 break
 
-            # Marquer ce nœud comme visité
+            # Marquer ce noeud comme visité
             visited[min_node] = True
 
             # Mettre à jour les distances pour les voisins
@@ -62,7 +63,6 @@ def Dijkstra(C):
         D[i] = chemins_plus_court(i)
 
     return D
-
 
 def Bellman_Ford(C):
     """
@@ -88,7 +88,7 @@ def Bellman_Ford(C):
         """
         # Initialisation des distances à l'infini
         dist = [INF] * n
-        # Distance au nœud lui-même = 0
+        # Distance au noeud lui-même = 0
         dist[noeud] = 0
 
         # Appliquer |V| - 1 relaxations pour toutes les arêtes
@@ -119,11 +119,11 @@ def Floyd_Warshall(C):
     # Copier la matrice coût sur D
     D = C.copy()
 
-    for i in range(n):  # Sommet intermédiaire
-        for j in range(n):  # Sommet source
-            for k in range(n):  # Sommet destination
-                # Misa à jour de la distance minimale
-                if D[i][k] != INF and D[k][j] != INF:  # Eviter les additions avec des INF
+    for k in range(n):  # Sommet intermédiaire
+        for i in range(n):  # Sommet source
+            for j in range(n):  # Sommet destination
+                # Mise à jour de la distance minimale
+                if D[i][k] != INF and D[k][j] != INF:  # Éviter les additions avec des INF
                     D[i][j] = min(D[i][j], D[i][k] + D[k][j])
 
     return D

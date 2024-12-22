@@ -1,6 +1,4 @@
-import numpy as np
 from shortest_path_algorithm import *
-
 
 # Initiation des variables
 INF = float('inf')
